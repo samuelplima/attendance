@@ -1,0 +1,13 @@
+amazon:
+  access:
+    key: AKIATW5KNR2JB33O6RXG
+    secret-key: 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
+  region: us-east-1
+  sqs:
+    queue:
+      complains: https://sqs.us-east-1.amazonaws.com/255371087506/complains
+      attendance: https://sqs.us-east-1.amazonaws.com/255371087506/attedence
+
+
+server:
+  port: 9002
