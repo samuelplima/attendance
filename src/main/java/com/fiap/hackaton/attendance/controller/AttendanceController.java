@@ -1,6 +1,5 @@
 package com.fiap.hackaton.attendance.controller;
 
-import com.amazonaws.services.sqs.model.Message;
 import com.fiap.hackaton.attendance.sqs.MessageServiceProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
