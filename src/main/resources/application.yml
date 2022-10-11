@@ -1,7 +1,7 @@
 amazon:
   access:
-    key: AKIATW5KNR2JB33O6RXG
-    secret-key: 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
+    accesskey: ${acess.key}
+    secretkey: ${secret.key}
   region: us-east-1
   sqs:
     queue:
