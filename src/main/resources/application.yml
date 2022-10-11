@@ -5,8 +5,8 @@ amazon:
   region: us-east-1
   sqs:
     queue:
-      complains: https://sqs.us-east-1.amazonaws.com/255371087506/complains
-      attendance: https://sqs.us-east-1.amazonaws.com/255371087506/attedence
+      complains: complains
+      attendance: attedence
 
 
 server:

@@ -1,5 +1,7 @@
 package com.fiap.hackaton.attendance.sqs;
 
+import com.fiap.hackaton.attendance.dto.ComplainsDTO;
+import com.fiap.hackaton.attendance.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.JmsListener;
@@ -9,22 +11,20 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-
-/**
- * SQS Consumer
- * p66-gateway-create-bpp-account
- */
 @Component
 @Slf4j
 public class AttendanceMessageConsumer {
 
-
-    @Value("attedence")
+    @Value("${amazon.sqs.queue.complains}")
     private String queueName;
 
+    @JmsListener(destination = "${amazon.sqs.queue.complains}")
+    public void messageConsumer(@Payload String message) {
+        ComplainsDTO complainsDTO = JsonUtil.readValue(message, ComplainsDTO.class);
 
-   @JmsListener(destination = "attedence")
-    public void messageConsumer(@Headers Map<String, Object> messageAttributes, @Payload String message) {
-    log.info(message);
+        log.info("***** COMPLAIN UPDATED RECEIVED AFTER ATTENDANCE:  " + queueName + ", COMPLAIN USER: " + complainsDTO.getUsuario()
+                + ", COMPLAIN ID: " + complainsDTO.getId());
+
+        //chama service
     }
 }
