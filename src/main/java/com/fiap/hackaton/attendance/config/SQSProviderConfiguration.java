@@ -14,10 +14,10 @@ public class SQSProviderConfiguration {
     @Value("${amazon.region}")
     private String region;
 
-    @Value("${amazon.access.key}")
+    @Value("${amazon.access.accesskey}")
     private String accessKey;
 
-    @Value("${amazon.access.secret-key}")
+    @Value("${amazon.access.secretkey}")
     private String secretKey;
 
     @Bean
